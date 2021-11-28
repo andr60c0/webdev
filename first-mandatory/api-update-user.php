@@ -24,9 +24,8 @@ if(strlen($_POST['update_user_password'])< _PASSWORD_MIN_LEN ){_res(400,['info' 
 if(strlen($_POST['update_user_password'])> _PASSWORD_MAX_LEN ){_res(400,['info' => 'Password should not have more than '._PASSWORD_MAX_LEN.' characters']);}
 
 //Validate phonenumber
-if( ! isset( $_POST['update_user_phonenumber'] ) ){ _res(400,['info' => 'Phonenumber is required']); } 
-if(strlen($_POST['update_user_phonenumber'])< _PHONENUMBER_MIN_LEN ){_res(400,['info' => 'Phonenumber should be '._PHONENUMBER_MIN_LEN.' numbers']);}
-if(strlen($_POST['update_user_phonenumber'])> _PHONENUMBER_MAX_LEN ){_res(400,['info' => 'Phonenumber should be '._PHONENUMBER_MAX_LEN.' numbers']);}
+if( ! isset( $_POST['phonenumber'] ) ){ _res(400,['info' => 'Phonenumber is required']); } 
+if(strlen($_POST['phonenumber']) != _PHONENUMBER_LEN ){_res(400,['info' => 'Phonenumber should be '._PHONENUMBER_LEN.' numbers']);}
 
 
 try {

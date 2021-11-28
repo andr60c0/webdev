@@ -4,8 +4,7 @@ define('_PASSWORD_MIN_LEN', 6);
 define('_PASSWORD_MAX_LEN', 20);
 define('_NAME_MIN_LEN', 1);
 define('_NAME_MAX_LEN', 40);
-define('_PHONENUMBER_MIN_LEN', 8);
-define('_PHONENUMBER_MAX_LEN', 8);
+define('_PHONENUMBER_LEN', 8);
 
 
 

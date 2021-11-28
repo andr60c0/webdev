@@ -21,8 +21,8 @@ require_once('components/header.php');
     <input name="phonenumber" type="text" placeholder="Enter phonenumber"><br>
     <label for="password">Password</label><br>
     <input name="password" type="password" placeholder="Enter password"><br>
-    <label for="repeat_password">Repeat Password</label><br>
-    <input name="repeat_password" type="password" placeholder="Repeat password"><br>
+    <!-- <label for="repeat_password">Repeat Password</label><br>
+    <input name="repeat_password" type="password" placeholder="Repeat password"><br> -->
     <div class="password_criteria">
         <p>At least 6 characters<br>No more than 20 characters</p>    
     </div>
@@ -33,22 +33,20 @@ require_once('components/header.php');
 </div>
 </div> 
 <script>
-    async function sign_up(){    
-    const form = event.target.form
-      console.log(form)
-      let conn = await fetch("./api-signup.php", {
-        method: "POST",
-        body: new FormData(form)
-      })
-  
-        let res = await conn.json()
-        console.log(res);
-        if (!conn.ok){
+    async function sign_up(){
+    const form = event.target.form;
+    console.log(form)
+       let conn = await fetch("./api-signup", {
+           method : "POST",
+           body: new FormData(form)
+       })
+       let res = await conn.json()
+       if (!conn.ok){
            document.querySelector(".error").textContent = res.info
-       } else if (conn.ok){location.href = "user"}
-        // if( conn.ok ){ location.href = "user" }
-        
-        
+       } else if (conn.ok){
+        location.href = "user"
+       }
+       console.log(res)
     }
 </script>
 
