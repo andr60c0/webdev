@@ -33,10 +33,10 @@ require_once('components/header.php');
   <input type="text" name="update_user_lastName" value="<?= $_SESSION['user_lastname']?> "><br>
   <label for="update_user_email">Email: </label>
   <input type="text" name="update_user_email" value="<?= $_SESSION['user_email']?> "><br>
+  <label for="update_user_phonenumber">Phonenumber: </label>
+  <input type="text" name="update_user_phonenumber" value="<?= $_SESSION['user_phonenumber']?> "><br>
   <label for="update_user_password">Password: </label>
   <input type="password" name="update_user_password" value="<?= $_SESSION['user_password']?> "><br>
-  <label for="update_phonenumber">Phonenumber: </label>
-  <input type="text" name="update_user_phonenumber" value="<?= $_SESSION['user_phonenumber']?> "><br>
   <p class="error"></p>
   <button class="update_button" onclick="update_user()">Update</button>
 </form>
@@ -47,7 +47,7 @@ require_once('components/header.php');
    async function update_user(){
       const form = event.target.form
       console.log(form)
-      let conn = await fetch("./api-update-user.php", {
+      let conn = await fetch("api-update-user.php", {
         method: "POST",
         body: new FormData(form)
       })

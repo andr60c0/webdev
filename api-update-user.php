@@ -16,16 +16,18 @@ if( strlen($_POST['update_user_lastName'] ) > _NAME_MAX_LEN ){ _res(400,['info' 
 
 //Validate email
 if (! isset($_POST['update_user_email']) ){ _res(400,['info' => 'Email is required']);}
-if(! filter_var($_POST['update_user_email'], FILTER_VALIDATE_EMAIL) ){_res(400,['info' => 'Email is invalid']);}        
+if(! filter_var($_POST['update_user_email'], FILTER_VALIDATE_EMAIL) ){_res(400,['info' => 'Email is invalid']);}   
+
+//Validate phonenumber
+if( ! isset( $_POST['update_user_phonenumber'] ) ){ _res(400,['info' => 'Phonenumber is required']); } 
+if(strlen($_POST['update_user_phonenumber']) != _PHONENUMBER_LEN ){_res(400,['info' => 'Phonenumber should be '._PHONENUMBER_LEN.' digits']);}
 
 //Validate password
 if( ! isset( $_POST['update_user_password'] ) ){ _res(400,['info' => 'Password is required']); } 
 if(strlen($_POST['update_user_password'])< _PASSWORD_MIN_LEN ){_res(400,['info' => 'Password should have at least '._PASSWORD_MIN_LEN.' characters']);}
 if(strlen($_POST['update_user_password'])> _PASSWORD_MAX_LEN ){_res(400,['info' => 'Password should not have more than '._PASSWORD_MAX_LEN.' characters']);}
 
-//Validate phonenumber
-if( ! isset( $_POST['phonenumber'] ) ){ _res(400,['info' => 'Phonenumber is required']); } 
-if(strlen($_POST['phonenumber']) != _PHONENUMBER_LEN ){_res(400,['info' => 'Phonenumber should be '._PHONENUMBER_LEN.' numbers']);}
+
 
 
 try {
@@ -49,8 +51,9 @@ try {
     $q -> bindValue(":newUsername", $newUsername);
     $q -> bindValue(":newLastName", $newUserLastName);
     $q -> bindValue(":newEmail", $newUserEmail);
-    $q -> bindValue(":newPassword", $newPassword);
     $q -> bindValue(":newPhonenumber", $newPhonenumber);
+    $q -> bindValue(":newPassword", $newPassword);
+    
 
     $q -> execute();
     $row = $q -> fetch();
@@ -60,8 +63,9 @@ try {
     $_SESSION['user_name'] = $_POST['update_username'];
     $_SESSION['user_lastname'] = $_POST['update_user_lastName'];
     $_SESSION['user_email'] = $_POST['update_user_email'];
-    $_SESSION['user_password'] = $_POST['update_user_password'];
     $_SESSION['user_phonenumber'] = $_POST['update_user_phonenumber'];
+    $_SESSION['user_password'] = $_POST['update_user_password'];
+    
     _res(200, ['info' => 'user updated']);
 
 } catch(Exception $ex){

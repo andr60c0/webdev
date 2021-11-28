@@ -21,8 +21,8 @@ require_once('components/header.php');
     <input name="phonenumber" type="text" placeholder="Enter phonenumber"><br>
     <label for="password">Password</label><br>
     <input name="password" type="password" placeholder="Enter password"><br>
-    <!-- <label for="repeat_password">Repeat Password</label><br>
-    <input name="repeat_password" type="password" placeholder="Repeat password"><br> -->
+    <label for="repeat_password">Repeat Password</label><br>
+    <input name="repeat_password" type="password" placeholder="Repeat password"><br>
     <div class="password_criteria">
         <p>At least 6 characters<br>No more than 20 characters</p>    
     </div>
@@ -46,7 +46,7 @@ require_once('components/header.php');
        } else if (conn.ok){
         location.href = "user"
        }
-       console.log(res)
+    //    console.log(res)
     }
 </script>
 
