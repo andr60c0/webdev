@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_container {
+  margin: 50px;
+  padding: 20px 50px 50px 50px;
+  border: 1px solid rgb(209, 209, 213);
+  border-radius: 5px;
+}
+.user_nav,
+.items_nav {
+  margin: 20px 5px;
+  text-align: right;
+}
+.user-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  border-collapse: collapse;
+}
+table,
+tr,
+th {
+  border: 1px solid rgb(42, 42, 51);
+}
+
+th {
+  padding: 10px;
+}
+
+form {
+  width: 100%;
+}
+
+.items-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 63px;
+  letter-spacing: 0em;
+  color: #2a2a33;
+}
+
+label {
+  color: #2a2a33;
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: bold;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+::placeholder {
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: bold;
+  font-weight: 300;
+  font-size: 15px;
+}
+.user_nav,
+.items_nav {
+  width: 100%;
+}
+p,
+a,
+th {
+  color: rgb(42, 42, 51);
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: #f6f6fa;
+  border: 1px solid rgb(209, 209, 213);
+  width: 300px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  padding-bottom: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* .line {
+  width: 90%;
+  height: 2px;
+  background-color: black;
+} */
+.t_headers > th {
+  color: #006aff;
+  text-align: left;
+}
+.active_link {
+  border-bottom: 4px solid #006aff;
+  border-radius: 2px;
+}
+
+.button_container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d8d8e0;
+  padding-bottom: 10px;
+  border-radius: 2px;
+}
+
+.button_container a {
+}
+.password_criteria {
+  padding-left: 10px;
+}
+.password_criteria p {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+.login_button,
+.signup_button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #006aff;
+  color: white;
+  border: 1px solid #006aff;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: bold;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.error {
+  font-size: 15px;
+  margin-top: 10px;
+  color: red;
+}
