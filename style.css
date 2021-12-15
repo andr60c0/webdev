@@ -70,6 +70,10 @@ label {
   font-size: 14px;
 }
 
+.hide {
+  display: none;
+}
+
 ::placeholder {
   font-family: "Source Sans Pro", sans-serif;
   font-style: bold;

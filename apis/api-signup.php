@@ -80,7 +80,8 @@ try {
     $q3 -> execute();
     $user_name = $q3 -> fetch();
 
-    //Success    
+    //Success 
+    header('Content-Type: application/json');   
     session_start();
 
     $_SESSION['user_id'] = $user_id;
@@ -88,11 +89,18 @@ try {
     $_SESSION['user_lastname'] = $_POST['lastName'];
     $_SESSION['user_email'] = $_POST['email'];
     $_SESSION['user_phonenumber'] = $_POST['phonenumber'];
-    _res(200, ['info' => 'success signup']);
+    // _res(200, ['info' => 'success signup']);
+    $response = ["info" => "user created", "user_id" => $user_id];
+    echo json_encode($response);
 
-    $_message = "Thank you for signing up. <a href='http://localhost:8888/htdocs/verify-user.php?key=$verification_key&id=$user_id'>Click here to verify your account.</a>";
+    $_message = "Thank you for signing up. <a href='http://localhost:8888/verify_user.php?key=$verification_key&id=$user_id'>Click here to verify your account.</a>";
     $_to_email = $_POST['email'];
     require_once(__DIR__.'/../private/send_email.php');
+
+    $_sms = "Thank you for signing up on Zillow";
+    $_to_phone = $_POST['phonenumber'];
+    require_once(__DIR__.'/../private/send_sms.php');
+
 
 } catch(Exception $ex){
     _res(500, ['info'=>'system under maintenance', 'error'=>__LINE__]);

@@ -17,9 +17,10 @@ require_once(__DIR__.'/components/header.php');
     <input name="email" type="text" placeholder="Enter email"><br>
     <label for="password">Password</label><br>
     <input name="password" type="password" placeholder="Enter password"><br>
+    <a href="forgot-password" class="reset_password">Forgot your password?</a>
     <p class="error"></p>
     <button class="login_button"onclick="login()">Sign in</button>
-    
+  
   </form>
   </div>
   </div>
@@ -41,6 +42,7 @@ require_once(__DIR__.'/components/header.php');
         // if( conn.ok ){ location.href = "user" }
         
     }
+
   </script>
 
 <?php

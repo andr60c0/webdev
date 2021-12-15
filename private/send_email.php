@@ -34,7 +34,7 @@ try {
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'crazystupid.kea@gmail.com';                     // SMTP username
+    $mail->Username   = 'crazystupidemail.kea@gmail.com';                     // SMTP username
     $mail->Password   = 'crazystupidpassword123';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     // $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
@@ -44,7 +44,7 @@ try {
 
 
     //Recipients
-    $mail->setFrom('crazystupid.kea@gmail.com', 'Zillow');
+    $mail->setFrom('crazystupidemail.kea@gmail.com', 'Zillow');
     $mail->addAddress($_to_email, 'Andrea');     // Add a recipient
     // $mail->addAddress('ellen@example.com');               // Name is optional
     // $mail->addReplyTo('DUMMY_EMAIL_HERE_XXXXXXXXXXXXXXXXXX', 'Information');
