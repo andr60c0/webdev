@@ -35,9 +35,9 @@ try{
     header('Content-Type: application/json');
     session_start();
     $response = ["info" => "Email has been sent"];
-    // echo json_encode($response);
+    echo json_encode($response);
     $_SESSION['user_id'] = $user_id;
-    
+
     $_message = "<a href='http://localhost:8888/reset-password.php?id=$user_id'>Click here to reset your password.</a>";
     $_to_email = $_POST['email'];
     require_once(__DIR__.'/../private/send_email.php');

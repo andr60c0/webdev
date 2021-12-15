@@ -9,7 +9,7 @@ require_once(__DIR__.'/components/header.php');
             <label for="email">Email</label><br>
             <input name="email" type="text" placeholder="Enter email"><br>
             <p class="error"></p>
-            <button class="signup_button" onclick="forgotPassword()">Send</button>
+            <button class="forgot_password_button" onclick="forgotPassword()">Send</button>
         </form>
 
     

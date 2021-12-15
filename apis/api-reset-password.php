@@ -37,7 +37,7 @@ try{
     $response = ["info" => "Password changed"];
     echo json_encode($response);
 
-
+    $_SESSION['user_id'] = $user_id;
     
   }catch(Exception $ex){
     http_response_code(500);
