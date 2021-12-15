@@ -5,14 +5,9 @@ session_start();
 //   header('Location: index');
 //   exit();
 // }
-require_once('globals.php');
-require_once('components/header.php');
-// try {
-//     $db = _db();
-// }catch(Exception $ex){
-//     _res(500, ['info'=>'system under maintenance', 'error'=>__LINE__]);
 
-// }
+require_once(__DIR__.'/components/header.php');
+
 ?>
 
   <nav class="user_nav">
@@ -47,7 +42,7 @@ require_once('components/header.php');
    async function update_user(){
       const form = event.target.form
       console.log(form)
-      let conn = await fetch("api-update-user.php", {
+      let conn = await fetch("./apis/api-update-user.php", {
         method: "POST",
         body: new FormData(form)
       })
@@ -68,5 +63,5 @@ require_once('components/header.php');
 </script>
   <?php
 
-require_once('components/footer.php');
+require_once(__DIR__.'/components/footer.php');
 ?>   

@@ -1,6 +1,6 @@
 <?php
 $_title = 'Sign up';
-require_once('components/header.php');
+require_once(__DIR__.'/components/header.php');
 ?> 
 <div class="login-container">  
 <div class="form_container">
@@ -22,7 +22,7 @@ require_once('components/header.php');
     <label for="password">Password</label><br>
     <input name="password" type="password" placeholder="Enter password"><br>
     <label for="repeat_password">Repeat Password</label><br>
-    <input name="repeat_password" type="password" placeholder="Repeat password"><br>
+    <input name="repeat_password" type="password" placeholder="Confirm password"><br>
     <div class="password_criteria">
         <p>At least 6 characters<br>No more than 20 characters</p>    
     </div>
@@ -36,7 +36,7 @@ require_once('components/header.php');
     async function sign_up(){
     const form = event.target.form;
     console.log(form)
-       let conn = await fetch("api-signup", {
+       let conn = await fetch("./apis/api-signup", {
            method : "POST",
            body: new FormData(form)
        })
@@ -52,5 +52,5 @@ require_once('components/header.php');
 
 <?php
 
-require_once('components/footer.php');
+require_once(__DIR__.'/components/footer.php');
 ?>    

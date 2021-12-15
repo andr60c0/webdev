@@ -1,7 +1,7 @@
 <?php
 $_title = 'Welcome';
 
-require_once('components/header.php');
+require_once(__DIR__.'/components/header.php');
 ?>    
 <div class="login-container">
 <div class="form_container">
@@ -27,13 +27,13 @@ require_once('components/header.php');
     async function login(){
       const form = event.target.form
       console.log(form)
-      let conn = await fetch("api-login", {
+      let conn = await fetch("./apis/api-login", {
         method: "POST",
         body: new FormData(form)
       })
 
       let res = await conn.json()
-      console.log(res)
+      // console.log(res)
       // if( conn.ok ){ location.href = "user" }
       if (!conn.ok){
            document.querySelector(".error").textContent = res.info
@@ -45,6 +45,6 @@ require_once('components/header.php');
 
 <?php
 
-require_once('components/footer.php');
+require_once(__DIR__.'/components/footer.php');
 ?>    
 
