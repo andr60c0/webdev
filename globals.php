@@ -1,7 +1,7 @@
 <?php
 
 define('_PASSWORD_MIN_LEN', 6);
-define('_PASSWORD_MAX_LEN', 20);
+define('_PASSWORD_MAX_LEN', 32);
 define('_NAME_MIN_LEN', 1);
 define('_NAME_MAX_LEN', 40);
 define('_PHONENUMBER_LEN', 8);
