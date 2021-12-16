@@ -13,12 +13,6 @@ try{
     $q->execute();
     $item = $q->fetch();
 
-    $_SESSION['item_name'] = $item['item_name'];
-    $_SESSION['item_description'] = $item['item_description'];
-    $_SESSION['item_price'] = $item['item_price'];
-    $_SESSION['item_image'] = $item['item_image'];
-
-
     //Success
     echo(json_encode($item));
 

@@ -4,7 +4,7 @@ require_once(__DIR__.'/components/header.php');
 ?> 
 <div class="login-container">  
 <div class="form_container">
-<h1>Welcome to Zillow</h1>
+<img class="logo" src="assets/logo.svg" alt="zillowlogo">
 <div class="button_container">
 <a href="index">Sign in</a>
 <a class="active_link" href="signup">New account</a>

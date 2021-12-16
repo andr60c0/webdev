@@ -6,34 +6,39 @@ require_once(__DIR__.'/components/header.php');
 
 ?>
 
-  <nav class="user_nav">
-      <a href="user">Profile</a>
-      <a href="items">Items</a>
-      <a class="active_link" href="user_profile">User Profile</a>
+<nav class="nav">
+    <div></div>
+    <div class="nav_logo">
+      <img src="assets/logo.svg" alt="logo">
+    </div>
+    <div class="menulinks">
+      <a href="user">Home</a>
+      <a class="active_link" href="user_profile">Profile</a>
       <a href="logout">Logout</a>
-  </nav><br>
-  <div class="user-container">
+    </div>
+  </nav>
+  <div class="user_profile user-container">
     <div class="form_container">
-      <h1>Update user information</h1>
+      <h3 class="header">Update user information</h3>
 
       <form id="update_user_form" onsubmit ="return false">
-        <label for="update_username">First Name: </label>
+        <label for="update_username">First Name</label><br>
         <input type="text" name="update_username" value="<?= $_SESSION['user_name']?> "><br>
-        <label for="update_user_lastName">Last Name: </label>
+        <label for="update_user_lastName">Last Name</label><br>
         <input type="text" name="update_user_lastName" value="<?= $_SESSION['user_lastname']?> "><br>
-        <label for="update_user_email">Email: </label>
+        <label for="update_user_email">Email</label><br>
         <input type="text" name="update_user_email" value="<?= $_SESSION['user_email']?> "><br>
-        <label for="update_user_phonenumber">Phonenumber: </label>
+        <label for="update_user_phonenumber">Phonenumber</label><br>
         <input type="text" name="update_user_phonenumber" value="<?= $_SESSION['user_phonenumber']?> "><br>
         <p class="user_info_error"></p>
         <button class="update_button" onclick="updateUser()">Update user info</button>
       </form>
 
-      <h1>Change Password</h1>
+      <h3 class="header">Change Password</h3>
       <form id="form_change_password" onsubmit ="return false">
-        <label for="password">New Password:</label>
+        <label for="password">New Password</label>
         <input name="password" type="password" placeholder="Enter password"><br>
-        <label for="repeat_password">Confirm Password:</label>
+        <label for="repeat_password">Confirm Password</label>
         <input name="repeat_password" type="password" placeholder="Confirm password"><br>
         <p class="update_password_error"></p>
         <button class="reset_password_button" onclick="updatePassword()">Update Password</button>
