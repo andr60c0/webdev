@@ -158,6 +158,7 @@ require_once('components/header.php');
            
         }
 
+        //Update Item
         async function updateItem(){           
             const form = event.target.form;
             const itemId = document.querySelector("#update_item_form").dataset.id;
@@ -175,7 +176,7 @@ require_once('components/header.php');
             getItems();
         }
         
-
+        //Delete Item
         async function deleteItem(){
             const item = event.target.parentNode;
             const id = item.getAttribute('data-id');
