@@ -58,9 +58,10 @@ try {
 
     //Verification
     $verification_key = bin2hex(random_bytes(16));
+    $forgot_pw_key = bin2hex(random_bytes(16));
    
     //Insert data in the db
-    $q = $db->prepare('INSERT INTO users VALUES(:user_id, :user_name, :user_lastname, :user_email,:user_phonenumber,:user_password, :verification_key, :verified)');
+    $q = $db->prepare('INSERT INTO users VALUES(:user_id, :user_name, :user_lastname, :user_email,:user_phonenumber,:user_password, :verification_key, :verified, :forgot_pw_key)');
     $q -> bindValue(":user_id", null); //The db will give this automatically
     $q -> bindValue(":user_name", $_POST['name']);
     $q -> bindValue(":user_lastname", $_POST['lastName']);
@@ -69,6 +70,7 @@ try {
     $q -> bindValue(":user_password", $password);
     $q -> bindValue(":verification_key", $verification_key);
     $q -> bindValue(":verified", 0);
+    $q -> bindValue(":forgot_pw_key", $forgot_pw_key);
     
     $q -> execute();
     $user_id = $db->lastinsertid();
@@ -91,7 +93,7 @@ try {
     $_SESSION['user_phonenumber'] = $_POST['phonenumber'];
     // _res(200, ['info' => 'success signup']);
     $response = ["info" => "user created", "user_id" => $user_id];
-    echo json_encode($response);
+    // echo json_encode($response);
 
     $_message = "Thank you for signing up. <a href='http://localhost:8888/verify_user.php?key=$verification_key&id=$user_id'>Click here to verify your account.</a>";
     $_to_email = $_POST['email'];

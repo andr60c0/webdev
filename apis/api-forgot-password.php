@@ -30,17 +30,19 @@ try{
       _res(400, ['info' => 'Email does not exist in our system']);
      
     }
-
-    // SUCCESS
-    header('Content-Type: application/json');
-    session_start();
-    $response = ["info" => "Email has been sent"];
-    echo json_encode($response);
-    $_SESSION['user_id'] = $user_id;
-
+    $forgot_pw_key = $row['forgot_password_key'];
     $_message = "<a href='http://localhost:8888/reset-password.php?id=$user_id'>Click here to reset your password.</a>";
     $_to_email = $_POST['email'];
     require_once(__DIR__.'/../private/send_email.php');
+
+    // SUCCESS
+    header('Content-Type: application/json');
+    // session_start();
+    $response = ["info" => "Email has been sent"];
+    echo json_encode($response);
+    // $_SESSION['user_id'] = $user_id;
+
+  
 
     
   }catch(Exception $ex){

@@ -5,7 +5,7 @@ if(!isset($_SESSION['user_name'])){
   header('Location: index');
   exit();
 }
-require_once(__DIR__.'/private/tsv-parser.php');
+require_once(__DIR__.'/private/tsv-parcer.php');
 require_once('components/header.php');
 ?>
 
@@ -36,7 +36,7 @@ require_once('components/header.php');
           <input type="text" id="desc" name="item_description"><br>
           <label for="price">Item price</label><br>
           <input type="number" id="price" name="item_price"><br>
-          <label for="image">Item image</label><br>
+          <label for="image">Item image link</label><br>
           <input type="text" id="image" name="item_image"><br>
           <button onclick="uploadItem()">Upload item</button>
         </form>
@@ -48,13 +48,13 @@ require_once('components/header.php');
         <h3>Update item</h3>
         <form id="update_item_form" onsubmit="return false">
           <label for="name">Item name</label><br>
-          <input type="text" id="update_name" name="item_name" value="<?= $_SESSION['item_name']?>"><br>
+          <input type="text" id="update_name" name="item_name"><br>
           <label for="desc">Item description</label><br>
-          <input type="text" id="update_desc" name="item_description" value="<?= $_SESSION['item_description']?>"><br>
+          <input type="text" id="update_desc" name="item_description"><br>
           <label for="price">Item price</label><br>
-          <input type="number" id="update_price" name="item_price" value="<?= $_SESSION['item_price']?>"><br>
-          <label for="image">Item image</label><br>
-          <input type="text" id="update_image" name="item_image" value="<?= $_SESSION['item_image']?>"><br>
+          <input type="number" id="update_price" name="item_price"><br>
+          <label for="image">Item image link</label><br>
+          <input type="text" id="update_image" name="item_image"><br>
           <button onclick="updateItem()">Update item</button>
         </form>
       </div>
@@ -68,7 +68,7 @@ require_once('components/header.php');
 
       <?php
 
-        $data = json_decode(file_get_contents("otherItems.txt"));
+        $data = json_decode(file_get_contents("shop.txt"));
 
         foreach($data as $item){
             echo "<div class='item' data-id='{$item->id}'>
@@ -93,18 +93,16 @@ require_once('components/header.php');
     async function getItems(){
         let itemsContainer = document.querySelector("#items_container");
         itemsContainer.innerHTML = "";
-
         const conn = await fetch("apis/api-get-items", {
             method: "POST"
         })
         const res = await conn.json()
-        console.log("items", res);
         if(conn.ok){
             res.forEach((item) =>(
               document.querySelector("#items_container").insertAdjacentHTML("afterbegin", 
             `<div class="item" data-id="${item.item_id}">
                 <div class='item_image'>
-                    <img src='https://coderspage.com/2021-F-Web-Dev-Images/${item.item_image}' />
+                    <img src='${item.item_image}' />
                 </div>
                 <div class="delete_item_button" onclick="deleteItem()">🗑️</div>
                 <div class='item_info'>
@@ -147,14 +145,14 @@ require_once('components/header.php');
             document.querySelector("#items_container").insertAdjacentHTML("afterbegin", 
             `<div class="item" data-id="${res}">
                 <div class='item_image'>
-                    <img src='https://coderspage.com/2021-F-Web-Dev-Images/${itemImage}' />
+                    <img src='${itemImage}' />
                 </div>
                 <div class="delete_item_button" onclick="deleteItem()">🗑️</div>
                 <div class='item_info'>
                   <div class="edit_item_button" onclick="showUpdateItemModal()">🖊️</div>
-                  <div>${itemName}</div>
-                  <div>${itemDesc}</div>
-                  <div>${itemPrice}</div>
+                  <h4>${itemName}</h4>
+                  <p>${itemDesc}</p>
+                  <p>${itemPrice}</p>
                 </div>
             </div>`)
         }
@@ -180,9 +178,10 @@ require_once('components/header.php');
         });
         const res = await conn.json()
         document.querySelector("#update_item_form").dataset.id = itemId;
-        
-    
-      
+        document.querySelector("#update_name").value = res.item_name;
+        document.querySelector("#update_desc").value = res.item_description;
+        document.querySelector("#update_price").value = res.item_price;
+        document.querySelector("#update_image").value = res.item_image;  
     }
 
     //Update Item

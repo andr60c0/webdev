@@ -35,6 +35,6 @@ $q2 = $db->prepare('UPDATE users SET verified = :verified WHERE user_id = :user_
   $q2->bindValue(":verified", 1);
   $q2->bindValue(":user_id", $_GET['id']);
   $q2->execute();
-  echo "Your email has been verified.";
+  echo "Your email has been verified. <a href='user'>Back to home</a>"  ;
 
 ?>

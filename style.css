@@ -25,15 +25,17 @@ h1 {
   letter-spacing: 0em;
   color: #006aff;
 }
-
+h2 {
+  margin-top: 20px;
+}
 h2,
 h3 {
-  text-align: center;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  color: #2a2a33;
+  color: #006aff;
+  margin-bottom: 20px;
 }
 
 h4 {
@@ -41,7 +43,7 @@ h4 {
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  color: #2a2a33;
+  color: #006aff;
 }
 
 label {
@@ -250,6 +252,20 @@ button,
   color: red;
 }
 
+/************ FORGOT PASSWORD & RESET PASSWORD PAGES START ************/
+.forgot_password_page,
+.reset_password_page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.free_logo {
+  width: 15%;
+}
+/************ FORGOT PASSWORD & RESET PASSWORD PAGES END ************/
+
 /************ ITEMS START ************/
 
 #items_container,
@@ -278,7 +294,11 @@ button,
   box-shadow: 2px 2px 2px 0.5px #00000035;
 }
 .item_info {
-  padding: 10px;
+  padding: 0 10px;
+}
+
+.item_info h4 {
+  margin-bottom: 10px;
 }
 .edit_item_button {
   text-align: end;
@@ -299,7 +319,7 @@ button,
 /* Upload item modal & Update Item modal */
 .upload_item_modal,
 .update_item_modal {
-  width: fit-content;
+  width: 30vw;
   padding: 20px 50px 50px 50px;
   background-color: white;
 }
@@ -318,4 +338,13 @@ button,
 .upload_item_button {
   cursor: pointer;
 }
+
+.center_container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /************ ITEMS END ************/
