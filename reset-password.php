@@ -34,6 +34,12 @@ require_once(__DIR__.'/components/header.php');
         } else if (conn.ok){
             document.querySelector(".message").textContent = 'Your password has been reset!';
             document.querySelector(".error").style.color = "#006aff";
+            var a = document.createElement('a');
+            var linkText = document.createTextNode("Go to login");
+            a.appendChild(linkText);
+            a.title = "Go to login";
+            a.href = "index";
+            document.querySelector(".message").appendChild(a);
         }
         //    console.log(res)
         }
