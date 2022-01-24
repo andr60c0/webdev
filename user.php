@@ -38,6 +38,7 @@ require_once('components/header.php');
           <input type="number" id="price" name="item_price"><br>
           <label for="image">Item image link</label><br>
           <input type="text" id="image" name="item_image"><br>
+          <p class="error"></p>
           <button onclick="uploadItem()">Upload item</button>
         </form>
       </div>
@@ -55,6 +56,7 @@ require_once('components/header.php');
           <input type="number" id="update_price" name="item_price"><br>
           <label for="image">Item image link</label><br>
           <input type="text" id="update_image" name="item_image"><br>
+          <p class="error"></p>
           <button onclick="updateItem()">Update item</button>
         </form>
       </div>
@@ -133,15 +135,17 @@ require_once('components/header.php');
         const itemDesc = document.querySelector("#desc").value;
         const itemPrice = document.querySelector("#price").value;
         const itemImage = document.querySelector("#image").value;
-        modalContainers[0].style.display = "none";
+        
 
         const conn = await fetch("apis/api-upload-item",{
             method: "POST",
             body: new FormData(form)
         })
         const res = await conn.text()
-        
-        if(conn.ok){
+        if (!conn.ok){
+          console.log(res);
+          document.querySelector(".error").textContent = res;
+        }else if(conn.ok){
             document.querySelector("#items_container").insertAdjacentHTML("afterbegin", 
             `<div class="item" data-id="${res}">
                 <div class='item_image'>
@@ -154,7 +158,8 @@ require_once('components/header.php');
                   <p>${itemDesc}</p>
                   <p>${itemPrice}</p>
                 </div>
-            </div>`)
+            </div>`);
+            modalContainers[0].style.display = "none";
         }
       }
 
@@ -194,7 +199,7 @@ require_once('components/header.php');
         const itemDesc = document.querySelector("#update_desc").value;
         const itemPrice = document.querySelector("#update_price").value;
         const itemImage = document.querySelector("#update_image").value;
-        modalContainers[1].style.display = "none";
+        
         // console.log(formData.values, itemId);
 
         const conn = await fetch("apis/api-update-item", {
@@ -202,8 +207,15 @@ require_once('components/header.php');
             body: formData
         })
         const res = await conn.text()
-        console.log(res);
+        if (!conn.ok){
+          console.log(res);
+          document.querySelector(".error").textContent = res;
+       } else if (conn.ok){
+        modalContainers[1].style.display = "none";
         getItems();
+       }
+        console.log(res);
+      
     }
     
     //Delete Item
@@ -221,6 +233,7 @@ require_once('components/header.php');
         const res = await conn.text()
         item.remove();
     }
+
   </script>
   <?php
   require_once('components/footer.php');

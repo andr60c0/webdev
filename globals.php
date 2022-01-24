@@ -3,8 +3,17 @@
 define('_PASSWORD_MIN_LEN', 6);
 define('_PASSWORD_MAX_LEN', 32);
 define('_NAME_MIN_LEN', 1);
-define('_NAME_MAX_LEN', 40);
+define('_NAME_MAX_LEN', 20);
 define('_PHONENUMBER_LEN', 8);
+define('_DESC_MIN_LEN', 2);
+define('_DESC_MAX_LEN', 255);
+define('_PRICE_MIN_LEN', 1);
+define('_PRICE_MAX_LEN', 10);
+define('_IMAGE_MIN_LEN', 2);
+define('_IMAGE_MAX_LEN', 255);
+define('_ITEMID_LEN', 32);
+define('_ITEM_NAME_MIN_LEN', 2);
+define('_ITEM_NAME_MAX_LEN', 40);
 
 
 

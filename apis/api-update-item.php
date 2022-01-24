@@ -3,21 +3,25 @@ require_once(__DIR__.'/../globals.php');
 
 // Validate
 //Validate Item name
-if( !isset($_POST['item_name'])){ http_response_code(400); echo 'item_name required'; exit(); }
-if(strlen($_POST['item_name']) < _NAME_MIN_LEN){ http_response_code(400); echo 'item_name min '._NAME_MIN_LEN.' characters'; exit(); }
-if(strlen($_POST['item_name']) > _NAME_MAX_LEN){ http_response_code(400); echo 'item_name max '._NAME_MAX_LEN.' characters'; exit(); }
+if( !isset($_POST['item_name'])){ http_response_code(400); echo 'Item name is required'; exit(); }
+if(strlen($_POST['item_name']) < _ITEM_NAME_MIN_LEN){ http_response_code(400); echo 'Item name should be minimum '._NAME_MIN_LEN.' characters'; exit(); }
+if(strlen($_POST['item_name']) > _ITEM_NAME_MAX_LEN){ http_response_code(400); echo 'Item name should be maximum '._NAME_MAX_LEN.' characters'; exit(); }
 
 //Validate Item description
-if( ! isset( $_POST['item_description'] ) ){ _res(400, ['info' => 'Item desc required']); };
+if( !isset($_POST['item_description'])){ http_response_code(400); echo 'Item description is required'; exit(); }
+if( strlen($_POST['item_description']) < _DESC_MIN_LEN){ http_response_code(400); echo 'Item description should be minimum '._DESC_MIN_LEN.' characters'; exit();}
+if( strlen($_POST['item_description']) > _DESC_MAX_LEN){ http_response_code(400); echo 'Item description should be maximum '._DESC_MAX_LEN.' characters'; exit();}
 
 //Validate Item price
-if( ! isset( $_POST['item_price'] ) ){ _res(400, ['info' => 'Item price required']); };
+if( !isset($_POST['item_price'])){ http_response_code(400); echo 'Item price is required'; exit(); }
+if( strlen($_POST['item_price']) < _PRICE_MIN_LEN){ http_response_code(400); echo 'Item price should be minimum '._PRICE_MIN_LEN.' characters'; exit();}
+if( strlen($_POST['item_price']) > _PRICE_MAX_LEN){ http_response_code(400); echo 'Item price should be maximum '._PRICE_MAX_LEN.' characters'; exit();}
 
 //Validate Item image
-if( ! isset( $_POST['item_image'] ) ){ _res(400, ['info' => 'Item image required']); };
+if( !isset($_POST['item_image'])){ http_response_code(400); echo 'Item image link is required'; exit(); }
+if( strlen($_POST['item_image']) < _IMAGE_MIN_LEN){http_response_code(400); echo 'Item image link should be minimum '._IMAGE_MIN_LEN.' characters'; exit();}
+if( strlen($_POST['item_image']) > _IMAGE_MAX_LEN){ http_response_code(400); echo 'Item image link should be maximum '._IMAGE_MAX_LEN.' characters'; exit();}
 
-//Validate ID
-if( ! isset( $_POST['item_id'] ) ){ _res(400, ['info' => 'Item id required']); };
 
 try{
     $db = _db();
