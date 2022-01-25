@@ -233,7 +233,6 @@ require_once('components/header.php');
         const res = await conn.text()
         item.remove();
     }
-
   </script>
   <?php
   require_once('components/footer.php');
